@@ -1,0 +1,52 @@
+# Audio files
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.ogg
+*.flac
+*.wma
+*.aiff
+*.aif
+*.aifc
+*.m4b
+*.m4p
+*.m4r
+*.alac
+
+# Video files
+*.mp4
+*.m4v
+*.mov
+*.avi
+*.wmv
+*.flv
+*.mkv
+*.webm
+*.mpeg
+*.mpg
+*.m2v
+*.m4v
+*.3gp
+*.3g2
+*.ts
+
+# Common large media files (optional)
+*.swf
+*.vob
+*.ogv
+*.ogm
+
+# Temporary / partial downloads
+*.part
+*.tmp
+*.temp
+
+# macOS audio/video metadata
+.DS_Store
+__MACOSX/
+*.AppleDouble
+
+# Windows thumbnail caches
+Thumbs.db
+ehthumbs.db
