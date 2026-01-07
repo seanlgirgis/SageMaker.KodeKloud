@@ -1,0 +1,137 @@
+Audio file
+Your Recording 35.wav
+Transcript
+00:00:03 Speaker 2
+In this lesson, we're going to look at navigating the Sagemaker AI user interface, so we'll spend most of our time performing a demonstration.
+00:00:13 Speaker 2
+In the demonstration, we're going to look at how to create Jupiter Notebook instances. These are the legacy instances that when Sagemaker was first launched, this was all that we had. These have really been superseded by Sagemaker domains and the Sagemaker Studio. We're going to look at this first and then we'll compare later with the Sagemaker Studio.
+00:00:39 Speaker 2
+We're going to see where we can find data processing jobs, training jobs, and endpoints in the user interface so that we can see where those entities will reside. Now, if you tempt this in your own environment, you might find that there's nothing there. I'm going to show you an environment where there are some historical training jobs and some historical processing jobs, just so that you can see what would the detail would be of each one of those.
+00:01:06 Speaker 2
+We're also good to see where any models have been trained would be stored and we're going to see how we can access the Jupyter notebook that we launch. Let's dive in Here we are in the AWS Web Management Console. This is where we can administer all AWS services. Now I can see in my recently visited panel, I've got Amazon Sagemaker AI. Now, if you're performing this on your own machine, this might not be recently visited, so we can click up in the search bar and just enter.
+00:01:37 Speaker 2
+Agemaker Now I can see straight away there are two hits for Sagemaker, one called Agemaker AI, one called Sagemaker. Now Sagemaker AI is the original product that has been around since about 2016 and this is what we would use for developing, training and hosting our machine learning models. In mid 2024 we got Amazon Sagemaker platform.
+00:02:04 Speaker 2
+And that really is just taking Sagemaker AI and integrating.
+00:02:08 Speaker 2
+It with better data governance and integration with data warehousing and data lakes, everything we do in Sagemaker AI, we can do in the Sagemaker platform. So further now the focus is on Sagemaker AI. So let's click into that. OK, now is bringing me into the Sagemaker AI user interface. Now down the left hand side, I have my navigation bar. Let's see what some things we can figure out. I can see down under applications and Ides.
+00:02:38 Speaker 2
+I've got notebooks. If I click into notebooks, we can find out if I've got any Jupyter lab server notebooks, and at the moment I have none. As I Scroll down a little bit further, I can see under processing I can see if I've got any data processing jobs. Now again, if you're doing this for the first time on your own account when you click in processing jobs.
+00:03:02 Speaker 2
+You might not see anything, but because I've been using this for the past few months, I've got some historical processing jobs in here. So whenever you have kicked off a processing job, for example, maybe you did a data cleanup job to prepare some data for training, then it would appear here I can see the status of those jobs. Looks like nearly all completed successfully except for one that failed. What about training? If I start a machine learning training process, where would that be?
+00:03:32 Speaker 2
+Well, under the training section, I can expand and see what algorithms I have and what training jobs have been run. So let's click into training jobs and I can see, OK, I've got some training jobs over the last couple of months that I've run at different times as well. And I can see how long they took and I can see their completion status as well. Now, again, if you're just starting out and you're clicking into these areas as I did when I first learned Sagemaker, then you would find nothing under processing jobs and nothing under.
+00:04:02 Speaker 2
+Training jobs. The interface felt kind of empty and it will feel that way until you populate it with jobs that you have initiated from your code. Remember, we are really a code first product. We are going to be driving our creation of training jobs or our creation of processing jobs from Python code in a Jupyter notebook.
+00:04:27 Speaker 2
+Now if I scroll a little bit further down I can see inference, and under inference I can find out if I've got any models created.
+00:04:36 Speaker 2
+It looks like we have created some models here already, but three already, and it looks like I've got my house price model or at least a previous candidate of it already waiting there. So until you've trained a model successfully and registered it again, you would see nothing here. But I've got a few historical ones sitting here. If I check under endpoints, then endpoints will show me if I am hosting any of those models. An endpoint simply means that we've deployed A managed instance and the model is inside it, so.
+00:05:06 Speaker 2
+We can provide predictions, so let's just check our endpoints and good, we have no endpoints at this point, so we can't perform any real time inferencing just yet. OK, so now we're going to take a zoom in on the Jupyter notebooks. We're going to be revisiting creating models and processing. For now, let's just concentrate on the first step of getting a Jupyter notebook up and running within Sagemaker.
+00:05:34 Speaker 2
+Now, if we scroll back up so that we're looking at applications and Ides and we come down to notebooks.
+00:05:41 Speaker 2
+Now, the first thing I should highlight here is this big banner advert at the top that's telling us saying try the new Jupyter Lab in Sagemaker Studio. This is excellent advice and I would strongly encourage you if you're going to use Sagemaker, to use Sagemaker Studio. However, we are all about demystifying what Sagemaker can do. So we do need to differentiate the Sagemaker Studio from what we're doing here. And in a lot of ways, this is to do with history.
+00:06:11 Speaker 2
+When the Sagemaker product first launched, if you wanted a Jupyter notebook, you needed to launch a notebook instance. When Sagemaker started, we didn't have Sagemaker Studio. Sagemaker Studio came later and thankfully is way, way better. So we're going to look at both and you'll be able to see why Studio is better. But for now, let's jump back in time and say we want a notebook instance.
+00:06:35 Speaker 2
+So I'm going to come across here and create a notebook instance. So let's call it Codecloud. I'm going to call it legacy Jupyter just to hammer home the point that this is the the old way of doing it. Now this is going to create a managed virtual machine. And in that managed machine there will be a Jupyter server running that. We saw in a previous lesson how easy it was to install Jupyter on an Ubuntu Linux machine. Here it will become.
+00:07:05 Speaker 2
+To us, we can just consume it. There will be no need to install anything. Now the size of the compute instance that we will get will depend on what we picked from this dropdown list. So I can see here I've got T3 dot medium, the Tfamily just being a burstable CPU type that's ideal for jobs that are not going to be running 100% CPU all the time. Well, medium size will be typically I think 2 CPUs and about 4 gigabytes of RAM. But if you're not sure what.
+00:07:34 Speaker 2
+What size of CPU and memory?
+00:07:36 Speaker 2
+You get for an instance, I find this is a really good tool and we'll just open up a new browser tab and if you check Vantage SH and let's look for T3 dot medium. So I'm just typing that into Google search and it will take me straight away to the Vantage website and I can see D3 medium pricing and specs. I tend to use this more than the official AWS documentation. It's just become a habit, but AWS document this as well. But I like this site.
+00:08:06 Speaker 2
+Now I can see there that T3 medium will give me two CPUs and 4 gigabytes of RAM and it even tells me the generation of CPU family I would run on if I thought I needed more compute power. And I could click on the drop down list and maybe pick something a bit different. Let's come down to the C5 family, so C5 extra large for example. So what would that give me a C5 extra large? So we can even change here C5 dot.
+00:08:36 Speaker 2
+X large like that.
+00:08:39 Speaker 2
+You should find that there we go. That gives us 4 CPUs and 8 gigabytes of RAM and it runs on the Intel Xeon Platinum.
+00:08:47 Speaker 2
+So let's say we decide that's appropriate for our use case.
+00:08:51 Speaker 2
+So I'll leave the instance type, then we can pick which Jupyter Lab version we want to run. Obviously Jupyter Lab 4 is newer than three or one, so generally we would want to run the latest version of the Jupyter Lab software.
+00:09:07 Speaker 2
+We then have to pick an IAM role for our notebook to run as.
+00:09:12 Speaker 2
+Now, IEM rules are a little bit like a user account. We attach policies to them that confer privilege permissions to do things like talk to S3 or invoke a Sagemaker feature. But we attach those roles directly to the resource. So what this will do is it will provision a managed EC2 instance.
+00:09:36 Speaker 2
+And it will attach this permission to the instance, ensuring anything that runs inside of that instance will then run under that security context.
+00:09:45 Speaker 2
+Now I could select one of the pre-existing roles that I have here in my account.
+00:09:52 Speaker 2
+Notice it gives me the option to either create a new role.
+00:09:55 Speaker 2
+But it also gives me an option to create a role using the Role Creation Wizard. Now the Role Creation Wizard is good, but it is better suited for creating roles that are in the Sagemaker Studio integrated development environment.
+00:10:11 Speaker 2
+If I'm creating a legacy notebook, I'm going to use the legacy way of creating a role which is right at the top of this list.
+00:10:20 Speaker 2
+It goes right at the top there.
+00:10:22 Speaker 2
+And that's create I am role. Now when I create I am role. I could narrow the permissions here and say.
+00:10:28 Speaker 2
+Just specific's 3 buckets I want to give you access to, but for simplicity of the demo I'm going to leave it as any bucket. Now obviously that is not good security practice.
+00:10:39 Speaker 2
+In production, you would want to narrow the role down to just the buckets that related to this use case.
+00:10:47 Speaker 2
+OK, that's created me a new I am role with the required permissions that will be needed by this instance.
+00:10:55 Speaker 2
+And a little bit further down, I'm not going to modify any other settings to do with network or git or tagging. I just create notebook instance. Now at this point I can see that my notebook instance is pending, so it will remain like that for anywhere up to about 5 minutes. So what we'll do is we'll pause the video there and accelerate it and jump to the point when it's ready.
+00:11:20 Speaker 2
+OK, so that looks like our Jupiter notebook instance is now up and running and notice its status is showing as in service. Now when it's in service, that means we are now being billed for that instance. So make sure that you only have those instances running for as long as you need them. Always shut down or delete things you are not using.
+00:11:45 Speaker 2
+Now in order to get to the Jupiter interface, I come to the actions column.
+00:11:50 Speaker 2
+And I can see I've got two options to either open Jupiter or open Jupiter Lab. Let's look at both of them.
+00:11:57 Speaker 2
+If we open Jupiter first of all and click on it and it will open up a new tab.
+00:12:02 Speaker 2
+Notice it redirects me, takes a moment and then will render Jupyter interface. OK, so we now have the Jupyter interface. Now remember, Jupyter came first, Jupyterlab then came after that. So I've got an interface where I could create a new Jupyter notebook. Let's create it just as a standard Python 3 kernel, untitled dot ipymb.
+00:12:27 Speaker 2
+And now we can do our usual coding gear, print, A+B, just make sure everything is working like that. And yes, our Jupyter notebook indeed is working wonderful, but Jupyter on its own is a little limited because we can only work on one file at a time. So let's come back into interface and say, well, what if we use Jupyter Lab instead?
+00:12:54 Speaker 2
+So let's open Jupyterlab.
+00:12:56 Speaker 2
+And when we do that again, it opens a new browser tab with a redirection, and we'll get a Jupyter Lab interface, a bit more modern. And remember, with Jupyter Lab, you are able to edit multiple Jupyter notebooks at the same time, or indeed open up other file types too, such as CSV. And that can be a lot more helpful to you when working on projects because they can examine what's in a file as well as have my Jupyter Lab open.
+00:13:24 Speaker 2
+I can see here there's my untitled ipmy I'm going to open up and again I can start my hello in here.
+00:13:33 Speaker 2
+You know, and Yep, Python.
+00:13:36 Speaker 2
+Jupiter lab is working.
+00:13:39 Speaker 2
+Remember, not only can I open up files, but I can also use this to open up a terminal with the instance that is running my Jupyterlab server. So I could do things like piplist and I'd be able to see the Python packages that are installed and determine if I need to install any new ones. Remember, we might want to do things like seaborn or matplotlib for visualizations, things like that. Over in the left hand side, I can see if I've got any.
+00:14:10 Speaker 2
+Available to me, you can see here I've got a a git extension that would allow me to clone a repository directly into this environment extremely useful so that I can work on my Jupyter notebooks, have them in that local Git, and I could then git push them back to a git server. I can see down here as well that I've got other extensions available to me table of contents. So we've got introduction to Amazon algorithms in here. So here we've got some.
+00:14:39 Speaker 2
+Ready made Jupiter notebooks. So if I want to maybe take a look, let's tabular regression problem, for example, here we go. Double click on that one and then I can see hopefully over here I've got my Jupyter notebook and I can see this is a really well documented one. Notice how neat it is because they're making really good use of markdown to render it neatly. And This is why I love Jupiter so much.
+00:15:08 Speaker 2
+Because of that kind richness.
+00:15:10 Speaker 2
+Of mixing your code and mixing your documentation, your annotations with it. O you can see here I'm installing dependencies and a little bit further down saying region specifying. Okay, I'm going to train a tabular model and then we're using a head feature to show me the first few rows of that particular data set. But for now, what I want you to concentrate on is that we've got multiple tabs open to us that we can flip between.
+00:15:37 Speaker 2
+We can flip to a terminal.
+00:15:39 Speaker 2
+We can even extend this environment by going to the extensions you need to say yes to enable them, and then I can choose to install additional extensions into that interface. And there are numerous open source extensions that can add functionality into your Jupyter Lab environment. OK, cut back to here. So we're clear now that we've created notebook instances.
+00:16:05 Speaker 2
+We've shown where we can find data processing jobs.
+00:16:08 Speaker 2
+Training jobs and endpoints in our interface. We're sure where we can find models, and we've shown how we can access the Juyter and the Juyter Lab interfaces of a notebook instance.
+00:16:22 Speaker 2
+So launching these Jupiter notebooks has been using the legacy way of doing it. I mentioned a number of times that Sagemaker Studio will be our preferred way of consuming A Jupyter Lab interface. We now have a basic knowledge of navigating Sagemaker console. We know where to find legacy notebook instances, where to find historical processing jobs, training jobs and if we have any Sagemaker endpoints which are provided hosted.
+00:16:52 Speaker 2
+Models.
+00:16:53 Speaker 2
+Those data processing jobs we are typically going to use for data preparation ahead of model training. When you first look into your Sagemaker interface, it will be blank. It will be none there. But you saw on mine that I had some that I'd run previously for training jobs. Again, when we start out, this area will be empty until you've run a training job. Now, those training jobs you saw in my interface had all been launched because I'd been using the Sagemaker SDK with the.
+00:17:23 Speaker 2
+Estimator object in order to represent starting a training job, and we know where to find model artifacts now listed under Inference and Models and determine if any of them are being hosted right now by Sagemaker for real-time inference, which we would see under the endpoint section. Now. We have also seen many other options within the user interface. We will explore these throughout the rest of the course.
+00:17:53 Speaker 2
+But for now, we're beginning to get a firm idea about where to find specific things in the interface. But one last piece of advice here, don't get too concerned about the web interface. Your workflow will be driven from your Jupyter notebook and your code. And generally you'll only be coming back to the web interface to check on progress to see if a data processing job is finished yet or a training job is finished, something like that. Your day-to-day actions.
+00:18:22 Speaker 2
+Are not going to be driven by the UI. So after I finished that last .5, I'll do the hand to the next lesson. So that wraps up this demonstration lesson. In our next lesson, we're going to get an introduction into Sagemaker domains, which are the foundation for using the newer Sagemaker Studio development environment, which will give us a much more modern and more complete implementation.
+00:18:50 Speaker 2
+Of Jupiter Lab. See you there.
+
+
