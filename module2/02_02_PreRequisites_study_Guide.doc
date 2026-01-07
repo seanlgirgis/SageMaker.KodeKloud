@@ -1,0 +1,79 @@
+Machine Learning Prerequisites Study Guide
+
+This guide provides a comprehensive review of the core concepts and prerequisites for the machine learning course, based on the provided lesson materials. It includes a short-answer quiz to test foundational knowledge, essay questions for deeper reflection, and a glossary of key terms.
+
+Short-Answer Quiz
+
+Answer the following ten questions in 2-3 sentences each, based on the information presented in the lesson.
+
+1. What is the primary goal of this course and who is its target audience?
+2. Describe the level of Python programming skill required for this course.
+3. What is the main AWS platform that will be used, and what are its three primary functions in the machine learning process?
+4. What are the mandatory prerequisite skills related to the AWS Management Console and Amazon S3?
+5. According to the lesson, what is the role of a data scientist in relation to machine learning algorithms?
+6. Explain the concept of "training" a machine learning model as described in the source materials.
+7. What is the direct output of the training process, and why can it not generate predictions on its own?
+8. Define "inference" and explain what is required to perform it.
+9. Why is familiarity with AWS compute services like EC2 and ECS considered helpful but not essential for this course?
+10. What type of data will be used for the course project, and which specific machine learning algorithm is mentioned?
+
+
+--------------------------------------------------------------------------------
+
+
+Answer Key
+
+1. The primary goal is to lower the prerequisites for learning machine learning by focusing on practical application. The course is specifically targeted at beginners who do not necessarily have any prior machine learning background.
+2. Only basic Python skills are required, not advanced development expertise. A learner should be ableto write a simple function (def), store values in variables and lists, iterate over lists using a for loop, use if statements for conditional logic, and print output to the console.
+3. The main platform is AWS SageMaker. It will be used to help build the machine learning models, train the models using source data, and ultimately host the trained models to generate predictions.
+4. A learner must have an AWS account and know how to log into the AWS Management Console. Regarding Amazon S3, it is required that the learner can use the console to create S3 buckets and be able to upload files (like CSVs) to a bucket and download files from it.
+5. The role of the data scientist is to choose the appropriate off-the-shelf machine learning algorithm based on the specific problem they are trying to solve. They may also experiment with more than one algorithm to find the best solution for a particular problem.
+6. Training is the process where a selected machine learning algorithm is used with source data to learn patterns and relationships within that data. The goal is to create a generalized understanding, such as finding a "line of best fit," so the model can make accurate predictions on new, unseen data.
+7. The output of the training process is a trained model, which is simply a file artifact (e.g., model.tgz). It cannot generate predictions on its own because it is not a binary executable and must first be hosted on a compute platform with supporting code to process requests.
+8. Inference is the process of using a hosted, trained model to generate a prediction based on new data that it has not seen before. To perform inference, one must send a request with the new data to the hosted model, which then returns the predicted output.
+9. Familiarity with EC2 (virtual machines) or ECS (containers) is helpful because it can aid in understanding the compute platform capabilities that SageMaker uses behind the scenes. However, it is not essential because the course will focus on using SageMaker directly, and a lack of prior knowledge will not be a blocker to learning.
+10. The course project will use tabular data based on house prices from the City of London. The specific machine learning algorithm mentioned for use in the course is Linear Learner.
+
+
+--------------------------------------------------------------------------------
+
+
+Essay Questions
+
+Reflect on the concepts presented in the lesson and formulate detailed responses to the following prompts. (Answers not provided).
+
+1. Describe the end-to-end machine learning workflow presented in the lesson, starting from the initial source data and culminating in a final prediction. Explain the distinct purpose and contribution of each major stage: Training, Hosting, and Inference.
+2. Explain the rationale behind the stated Python prerequisites. Why are concepts like lists, iteration, and conditional statements particularly important for working with the tabular house price data mentioned in the course?
+3. Discuss the role of AWS in the machine learning process outlined in this course. Differentiate between the mandatory AWS skills and the optional ones, explaining why services like S3 are essential while EC2 is merely helpful for context.
+4. The lesson emphasizes that machine learning allows a model to "generalize" from data. What does this mean, and how does it differ from traditional programming where all possible outcomes are explicitly coded? Use the house price example to illustrate your explanation.
+5. The output of the training process is described as a "model artifact" (e.g., model.tgz) that is not an executable file. Elaborate on the steps required to turn this static artifact into an active service that can generate predictions on demand.
+
+
+--------------------------------------------------------------------------------
+
+
+Glossary of Key Terms
+
+Term	Definition
+AWS	Amazon Web Services, the cloud platform that provides the services used in this course.
+AWS Management Console	The primary web interface for managing all AWS services. A prerequisite for the course is knowing how to log in and use it.
+AWS SageMaker	The preferred platform used in this course for building, training, and hosting machine learning models.
+Conditional Statement	A programming construct, such as an if statement in Python, that performs a specific action only if a particular condition is true.
+EC2 (Elastic Compute Cloud)	An AWS service for managing virtual machines. Awareness of EC2 is helpful but not required for the course.
+ECS (Elastic Container Service)	An AWS service for managing containers. Awareness of ECS is helpful but not required for the course.
+For Loop	A programming control flow statement used for iteration. In the context of the course, it is used to loop over elements in a Python list to perform an action on each one.
+Inference	The process of using a trained and hosted machine learning model to generate a prediction based on new, previously unseen data.
+Iteration	A term for looping over a collection of items, such as the elements in a list, to perform an action on each item.
+Linear Learner	A specific, ready-made machine learning algorithm mentioned in the lesson that will be used to solve the house price prediction problem.
+List (Python)	A Python data structure used to store a collection of items. Understanding how to define and iterate over lists is a key prerequisite.
+ML Algorithm	A ready-made algorithm (e.g., Linear Learner, XGBoost) that is used during the training process to learn patterns from source data.
+Model Artifact	The file that is the output of the machine learning training process (e.g., model.tgz). It contains the learned patterns but is not an executable on its own.
+Model Hosting	The process of deploying a trained model artifact onto a compute platform (like SageMaker) with supporting code, making it available to receive inference requests.
+Prediction	The output generated by a machine learning model during inference. In the course example, this would be the predicted house price.
+Python	The programming language used to build and train models in this course. Basic proficiency is a prerequisite.
+Route 53	The native Domain Name System (DNS) service in AWS. Awareness of Route 53 is helpful but not essential.
+S3 (Simple Storage Service)	An AWS data storage service. For this course, users must be able to create S3 "buckets" and upload/download files to them.
+Source Data	The initial dataset used to train a machine learning model. The course uses tabular house price data from London.
+Tabular Data	Data organized in a table format with rows and columns, such as the house price data used in the course.
+Trained Model	The output of the training process; a model artifact that has learned patterns from the source data and is ready to be hosted for inference.
+Training	The core machine learning process where an algorithm learns the relationships and patterns in a source dataset to create a trained model.
