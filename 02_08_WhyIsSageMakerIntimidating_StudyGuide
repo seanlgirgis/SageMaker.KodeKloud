@@ -1,0 +1,71 @@
+SageMaker Fundamentals Study Guide
+
+Quiz
+
+Answer the following questions in 2-3 sentences based on the provided source material.
+
+1. Why is Amazon SageMaker often perceived as an intimidating product?
+2. What is the "code-first" approach, and why is it considered the best practice for using SageMaker?
+3. Describe the primary responsibilities and tools used by a Data Engineer within the SageMaker ecosystem.
+4. What is the main function of SageMaker training jobs, and what key advantage do they offer over local training?
+5. How does the use of SageMaker typically differ between a development AWS account and a production AWS account in an enterprise setting?
+6. Explain the purpose of the SageMaker SDK for Python. How does it relate to the standard AWS SDK?
+7. What role does the MLOps Engineer play, and which SageMaker features are they most likely to use?
+8. What are SageMaker endpoints, and which persona is primarily responsible for them?
+9. Describe the function of the SageMaker Model Registry.
+10. Name the three primary personas that interact with SageMaker and the main activity each is responsible for.
+
+
+--------------------------------------------------------------------------------
+
+
+Answer Key
+
+1. SageMaker is seen as intimidating because it is not a single product but rather a collection of many tools designed for different personas at various stages of the machine learning lifecycle. Approaching it as a single product to be learned by one practitioner is confusing, as different users will only use specific parts of the platform relevant to their job.
+2. The "code-first" approach involves using Python, Jupyter notebooks, and the SageMaker SDK to programmatically interact with the platform's features. It is the best practice, used by 95% of practitioners, because most data professionals come from a code-centric background and find it more efficient and practical than navigating the complex UI, which is not how enterprises typically use the product.
+3. A Data Engineer is responsible for data preparation at the beginning of the ML pipeline. They might use low-code tools like SageMaker Canvas and Data Wrangler or code-first tools like SageMaker Studio and data processing jobs to clean, transform (e.g., JSON to CSV), and handle missing data or outliers.
+4. SageMaker training jobs allow a user to offload the model training process to scalable cloud compute resources instead of using a local machine. The key advantage is access to powerful infrastructure (e.g., 24 CPUs and a terabyte of RAM) on a pay-as-you-go basis, allowing users to train large models without owning expensive hardware.
+5. In an enterprise, a development account typically uses a wide range of SageMaker features for data processing, training, and model registration. In contrast, test and production accounts are more focused, primarily using SageMaker Endpoints for hosting the model for inference and SageMaker Monitor to ensure prediction accuracy.
+6. The SageMaker SDK for Python is a specialized Software Developer Kit used to abstract high-level machine learning tasks, making it easy to create jobs in just a few lines of code. It is an additional SDK, separate from the regular AWS SDK for Python (Boto3), and is specifically designed for interacting with SageMaker's compute platform.
+7. The MLOps Engineer focuses on productionizing models, which includes deployment, automation, and monitoring. They primarily use SageMaker Endpoints to host models, SageMaker Pipelines to create CI/CD automation for model updates, and the Model Registry to manage model versions.
+8. SageMaker endpoints are a feature used to host a trained model on a compute platform (a virtual machine running in the background) so that it can serve predictions. The MLOps Engineer is the persona primarily focused on creating and managing SageMaker endpoints as part of model deployment.
+9. The SageMaker Model Registry is a version control repository for trained model artifacts. It helps manage different versions of models, similar to how GitHub manages code, and is used by Data Scientists to register models and by MLOps Engineers to manage versions for deployment.
+10. The three primary personas are the Data Engineer, the Data Scientist, and the MLOps Engineer. The Data Engineer is responsible for Data Prep & Management, the Data Scientist focuses on Exploratory Data Analysis (EDA) & Model Training, and the MLOps Engineer handles Deployment & Pipelines.
+
+
+--------------------------------------------------------------------------------
+
+
+Essay Questions
+
+Construct detailed, essay-format answers for the following prompts, synthesizing information from across the source material.
+
+1. Discuss the persona-centric view of Amazon SageMaker. Detail the distinct roles, primary activities, and specific SageMaker tools used by the Data Engineer, Data Scientist, and MLOps Engineer throughout the machine learning pipeline.
+2. Explain why a "code-first" approach is the preferred method for working with SageMaker over using the AWS Management Console UI. What specific tools and technologies support this approach, and how do they streamline the ML workflow?
+3. Describe the end-to-end machine learning pipeline as supported by SageMaker tools. Map each stage of the pipeline (Data Preparation, Model Build, Model Evaluation, Model Selection, Deployment, and Monitoring) to the relevant SageMaker features and the personas involved.
+4. Analyze the structure of a typical enterprise deployment of SageMaker across multiple AWS accounts (Project Development, Project Test, and Project Product). Explain the rationale for this separation of concern and identify which SageMaker features are likely to be used in each environment.
+5. SageMaker is described not as a single product but as a "collection of tools." Elaborate on this statement by explaining how different components of SageMaker address specific needs and use cases, from low-code data preparation to automated CI/CD pipelines for production models.
+
+
+--------------------------------------------------------------------------------
+
+
+Glossary of Key Terms
+
+Term	Definition
+Code-First Approach	The best practice workflow for SageMaker, used by 95% of practitioners. It involves using Python, Jupyter Notebooks, and the SageMaker SDK to programmatically drive ML tasks like processing, training, and deployment, rather than using the AWS Console UI.
+Data Engineer	A persona focused on the data preparation stage of the ML pipeline. They use tools like Canvas, Data Wrangler, and data processing jobs to clean, transform, and prepare data for the Data Scientist.
+Data Scientist	A persona focused on exploratory data analysis (EDA), feature engineering, model training, and monitoring model performance. They use tools like Studio, JupyterLab, Data Processing Jobs, Training Jobs, Model Registry, and Model Monitor.
+Exploratory Data Analysis (EDA)	The process, performed by a Data Scientist, of visualizing and analyzing data to better understand correlations between features.
+Jupyter Notebooks	An interactive development environment used by data scientists to run Python code. SageMaker provides a hosted JupyterLab environment within SageMaker Studio for a secure, cloud-based workspace.
+Machine Learning (ML) Pipeline	The end-to-end process of preparing data, training a model, evaluating its performance, deploying it to a compute platform, and monitoring its predictions. SageMaker provides tools for each stage of this pipeline.
+MLOps Engineer	A persona focused on productionizing models, similar to a DevOps engineer. They handle deployment, automation (CI/CD), and managing model versions using tools like SageMaker Endpoints, Pipelines, Projects, and Model Registry.
+SageMaker Canvas	A low-code tool used by Data Engineers for data preparation tasks.
+SageMaker Data Wrangler	A low-code tool used by Data Engineers for data preparation tasks.
+SageMaker Endpoints	A feature that deploys a model artifact into a hosted virtual machine to serve real-time predictions or inference. This is primarily managed by the MLOps Engineer.
+SageMaker Model Monitor	A feature used to monitor a deployed model's predictions to ensure they remain accurate. It provides a feedback loop to the Data Scientist if the model's performance starts to drift.
+SageMaker Model Registry	A version control repository for model artifacts, likened to "GitHub for models." It allows for the management of different model versions for deployment and governance.
+SageMaker Pipelines	A feature used by MLOps Engineers to automate the ML workflow (CI/CD), enabling automatic deployment and updates of models when changes are approved.
+SageMaker SDK for Python	A dedicated Software Developer Kit (SDK), separate from the standard AWS SDK, designed to abstract high-level ML tasks. It allows practitioners to interact with SageMaker's compute platform from Python code with just a few lines.
+SageMaker Studio	An integrated development environment where Data Scientists and Data Engineers can run Jupyter notebooks and invoke SageMaker features in a secure, hosted environment.
+Training Job	A SageMaker concept that allows a user to run their model training script on a remote, scalable virtual machine in the cloud. This offloads heavy compute requirements from a local machine and provides access to powerful hardware on demand.
